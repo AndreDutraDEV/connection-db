@@ -1,13 +1,6 @@
 version: '3'
 
 services:
-  # web:
-  #   build: ./fintz-app
-  #   ports:
-  #     - "3300:3000"
-  #   environment:
-  #     - NODE_ENV=production
-
   postgres:
     image: postgres:16
     container_name: postgres_db
@@ -33,15 +26,6 @@ services:
       - "8083:80"
     depends_on:
       - postgres
-
-
-  api:
-    build: ./fintz-api
-    ports:
-      - "5000:5000"
-    env_file:
-      - ./fintz-api/.env
-    restart: on-failure
 
 volumes:
   pgdata:
